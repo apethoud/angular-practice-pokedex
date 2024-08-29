@@ -1,0 +1,36 @@
+<div>
+  <section>
+    <form>
+      <label>Type a name or ID:</label>
+      <input type="text" placeholder="" #searchTerm />
+      <button
+        class="primary"
+        type="button"
+        (click)="onSubmit(searchTerm.value)"
+      >
+        Search
+      </button>
+    </form>
+  </section>
+  <section *ngIf="selectedPokemon">
+    <mat-card class="card">
+      <mat-card-header>
+        <h1>{{ selectedPokemon?.name | titlecase }}</h1>
+      </mat-card-header>
+      <mat-card-content>
+        <img [src]="selectedPokemon?.sprites.front_default" class="image" />
+        <div class="basic-stats">
+          <h2>Basic Stats</h2>
+          <p>Height: {{ selectedPokemon?.height }}</p>
+          <p>Weight: {{ selectedPokemon?.weight }}</p>
+          <h3>Types</h3>
+          <ul>
+            <li *ngFor="let type of selectedPokemon?.types">
+              {{ type.type.name | titlecase }}
+            </li>
+          </ul>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</div>
