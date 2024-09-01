@@ -1,7 +1,7 @@
 <div>
   <section>
-    <form>
-      <label>Type a name or ID:</label>
+    <form (ngSubmit)="onSubmit(searchTerm.value)">
+      <label>Type a Pokemon's name or ID:</label>
       <input type="text" placeholder="" #searchTerm />
       <button
         class="primary"
